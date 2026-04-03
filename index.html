@@ -3,100 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe Pro - Download Now</title>
+    <title>Tic Tac Toe Pro - Play & Download</title>
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #00FF00; /* Green Background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at center, #1e3c72 0%, #102a57 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Tic-Tac-Toe Pattern Background Decoration */
+        body::before {
+            content: "✕ ○ ✕\n○ ✕ ○\n✕ ○ ✕";
+            position: absolute;
+            font-size: 15vw;
+            opacity: 0.05;
+            white-space: pre;
+            line-height: 1;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px 25px;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            width: 85%;
+            max-width: 380px;
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 1;
             text-align: center;
         }
 
-        /* Blue Header */
-        .header {
-            background-color: #0000FF;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .container {
-            padding: 50px 20px;
-        }
-
-        .game-logo {
-            width: 150px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .logo-container {
+            position: relative;
+            display: inline-block;
             margin-bottom: 20px;
         }
 
-        h1 { color: #333; }
-        p { color: #555; font-size: 18px; margin-bottom: 30px; }
+        .logo {
+            width: 130px;
+            height: 130px;
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border: 3px solid #00c853;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .tagline {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
 
         /* Action Buttons */
         .btn {
-            display: inline-block;
-            width: 80%;
-            max-width: 300px;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
+            padding: 16px;
+            border-radius: 15px;
             font-weight: bold;
             font-size: 18px;
-            transition: 0.3s;
-            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .play-btn {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.4);
         }
 
         .download-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
+            background: linear-gradient(45deg, #00c853, #b2ff59);
+            color: #003300;
+            box-shadow: 0 8px 20px rgba(0, 200, 83, 0.3);
         }
 
         .whatsapp-btn {
-            background-color: #25D366;
+            background: #25D366;
             color: white;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
         }
 
-        .btn:hover { transform: scale(1.05); }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+        }
+
+        .play-btn:active { transform: scale(0.95); }
+
+        .info-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.15);
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 0.5px solid rgba(255,255,255,0.3);
+        }
 
         .footer {
-            margin-top: 50px;
+            margin-top: 30px;
             font-size: 12px;
-            color: #666;
+            opacity: 0.6;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">Tic-Tac-Toe Pro Max AI</div>
+    <div class="card">
+        <div class="logo-container">
+            <img src="https://i.ibb.co/Lzf7vG40/1000080029.jpg" alt="Game Logo" class="logo">
+        </div>
+        
+        <h1>Tic Tac Toe Pro</h1>
+        <p class="tagline">Aapka favourite game ab aur bhi behtar! <br> Online khele ya APK download karein.</p>
 
-    <div class="container">
-        <img src="https://i.ibb.co/Lzf7vG40/1000080029.jpg" alt="Game Logo" class="game-logo">
-
-        <h1>Game Download Karein</h1>
-        <p>Best Multiplayer Tic-Tac-Toe Game with AI</p>
-
-        <a href="https://github.com/Imran13144/GAME/raw/main/Tic%20Tac%20Toe%20Pro.apk" class="btn download-btn">
-            📥 Download APK
+        <a href="play.html" class="btn play-btn">
+            🎮 PLAY ONLINE NOW
         </a>
 
-        <br>
-
-        <a href="https://wa.me/966578913144?text=Hello!%20Mujhe%20game%20chahiye" class="btn whatsapp-btn">
-            💬 WhatsApp Support
+        <a href="https://imran13144.github.io/Magic-200-Pro/" class="btn play-btn">
+            ✨ Play Magic 200 Pro
         </a>
+
+        <a href="https://imran13144.github.io/Math-Merge/" class="btn play-btn">
+            🧩 Play Math Merge
+        </a>
+
+        <a href="Magic 200 Pro.apk" download="Magic 200 Pro.apk" class="btn download-btn">
+            📥 Download Magic 200
+        </a>
+
+        <a href="Tic Tac Tae Pro.apk" download="Tic Tac Tae Pro.apk" class="btn download-btn">
+            📥 FREE DOWNLOAD (APK)
+        </a>
+
+        <a href="https://wa.me/919307679432?text=Hello!%20Maine%20aapka%20game%20dekha." class="btn whatsapp-btn">
+            💬 WhatsApp Message
+        </a>
+
+        <div class="info-badges">
+            <span class="badge">Size: 5MB</span>
+            <span class="badge">v1.0.1</span>
+            <span class="badge">★★★★★</span>
+        </div>
     </div>
 
     <div class="footer">
-        &copy; 2026 Tic-Tac-Toe Pro - All Rights Reserved
+        &copy; 2026 Developed by Imran | Secure & Safe
     </div>
 
 </body>
 </html>
-
